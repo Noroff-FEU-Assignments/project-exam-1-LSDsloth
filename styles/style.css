@@ -316,6 +316,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   width: 50%;
+  gap: 20px;
 }
 
 .carousellWrapper .rightSide .postText p {
