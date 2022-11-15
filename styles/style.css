@@ -625,6 +625,10 @@ footer .socials i:hover {
     grid-template-columns: 1fr 1fr;
   }
 
+  header {
+    height: 74px;
+  }
+
   header #toggle:checked ~ .navigationList {
     top: 0;
   }
