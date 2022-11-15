@@ -154,10 +154,19 @@ header img {
   margin: 15px 0;
 }
 
+header #toggle,
+header .hamburger_menu {
+  display: none;
+}
+
 header .navigationList {
+  display: flex;
 }
 
 header .navigationList ul {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 header .navigationList ul li {
@@ -182,7 +191,6 @@ header .navigationList ul li .activeSite {
 }
 
 header .login-signUpContainer {
-  float: right;
   line-height: 70px;
 }
 
@@ -209,8 +217,9 @@ header .login-signUpContainer a:nth-child(odd):hover {
 main {
   max-width: calc(1100px + 40px);
   margin: 170px auto;
-  /* padding: 0 5%; */
   position: relative;
+  display: grid;
+  gap: 50px;
 }
 
 /* Latest */
@@ -615,7 +624,91 @@ footer .socials i:hover {
   .newsPosts .listOfPosts {
     grid-template-columns: 1fr 1fr;
   }
+
+  header #toggle:checked ~ .navigationList {
+    top: 0;
+  }
+
+  header .imageContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+
+  header .hamburger_menu {
+    display: block;
+    color: #e1e1e1;
+    position: absolute;
+    font-size: 30px;
+    z-index: 1;
+    transition: 0.3s;
+    right: 20px;
+    line-height: 74px;
+  }
+
+  header .navigationList {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #0b0f14;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.3s ease-out;
+  }
+
+  header .navigationList ul {
+    position: static;
+    left: 0;
+    transform: translateX(0);
+    width: 90%;
+  }
+
+  header .navigationList ul li {
+    width: 100%;
+    /* text-align: center; */
+    border-bottom: 1px solid #bbb;
+  }
+
+  header .navigationList ul li:first-child {
+    /* border-top: 1px solid #bbb; */
+  }
+
+  header .navigationList ul li a {
+    margin: 0 20px;
+  }
+
+  header .login-signUpContainer {
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+  }
+
+  header .login-signUpContainer a:first-child {
+    display: inline-block;
+    line-height: 70px;
+    border-bottom: 2px solid #bbb;
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  header .login-signUpContainer a:nth-child(even) {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
 }
+
 @media (max-width: 450px) {
   .newsPosts .listOfPosts {
     grid-template-columns: 1fr;
