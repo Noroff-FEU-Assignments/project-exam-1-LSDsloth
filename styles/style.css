@@ -677,7 +677,6 @@ footer .socials i:hover {
   header .navigationList ul li {
     width: 100%;
     /* text-align: center; */
-    border-bottom: 1px solid #bbb;
   }
 
   header .navigationList ul li:first-child {
@@ -685,7 +684,11 @@ footer .socials i:hover {
   }
 
   header .navigationList ul li a {
-    margin: 0 20px;
+    display: block;
+    border-bottom: 1px solid #bbb;
+    margin: 0;
+    margin-bottom: 10px;
+    line-height: 50px;
   }
 
   header .login-signUpContainer {
@@ -700,9 +703,10 @@ footer .socials i:hover {
   header .login-signUpContainer a:first-child {
     display: inline-block;
     line-height: 70px;
-    border-bottom: 2px solid #bbb;
+    border-bottom: 1px solid #bbb;
     width: 100%;
-    padding-left: 20px;
+    margin-bottom: 10px;
+    line-height: 50px;
   }
 
   header .login-signUpContainer a:nth-child(even) {
@@ -710,6 +714,20 @@ footer .socials i:hover {
     margin-top: 20px;
     width: 100%;
     text-align: center;
+  }
+
+  .slideButtonPrevious,
+  .slideButtonNext {
+    display: none;
+  }
+
+  .carousellWrapper .feauturedNr {
+    flex-direction: column;
+  }
+
+  .carousellWrapper .leftSide,
+  .carousellWrapper .rightSide {
+    width: 100%;
   }
 }
 
