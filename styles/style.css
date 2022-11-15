@@ -729,6 +729,20 @@ footer .socials i:hover {
   .carousellWrapper .rightSide {
     width: 100%;
   }
+
+  .newsPosts .headerwrapper::before {
+    width: 5%;
+    transform: skew(-55deg);
+  }
+
+  .newsPosts .headerwrapper::after {
+    width: 5%;
+    transform: skew(55deg);
+  }
+
+  .newsPosts .headerwrapper h2 {
+    width: 100%;
+  }
 }
 
 @media (max-width: 450px) {
