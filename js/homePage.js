@@ -1,5 +1,4 @@
-const postsUrl =
-  "https://libeck.tech/project_exam//wp-json/wp/v2/posts?per_page=2&_embed";
+const postsUrl = "https://libeck.tech/project_exam//wp-json/wp/v2/posts?_embed";
 const postHeader = document.querySelector(".rightSide h3");
 const featuredPost = document.querySelector(".featuredPost");
 const featuredPostsContainer = document.querySelector(".slidesContainer");
@@ -19,6 +18,8 @@ async function getPosts(postsUrl) {
   console.log(posts);
 
   posts.forEach(function (post) {
+    console.log("Post with id: " + post.id);
+
     featuredPostsContainer.innerHTML += `
     <li class="featuredPost">
               <div class="leftSide">
@@ -59,6 +60,13 @@ async function getPosts(postsUrl) {
                 </div>
               </div>
     `;
+
+    for (let i = 0; i < post._embedded["wp:term"][0].length; i++) {
+      console.log(post._embedded["wp:term"][0][i].name);
+      if (post._embedded["wp:term"][0][i].name == "Reviews") {
+        console.log(post.title.rendered);
+      }
+    }
   });
 
   for (let i = 0; i < posts.length; i++) {

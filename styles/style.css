@@ -307,7 +307,8 @@ main {
   width: 50%;
 }
 
-.carousellWrapper .leftSide .imgWrapper {
+.carousellWrapper .leftSide .imgWrapper,
+.newsPosts .postContainer .imgWrapper {
   /* background: url(/images/testimg.jpg), #eee; */
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -468,6 +469,10 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px 20px;
+}
+
+.newsPosts .postContainer {
+  position: relative;
 }
 
 .newsPosts .postContainer .imgWrapper {
