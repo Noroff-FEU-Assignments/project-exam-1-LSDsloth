@@ -5,6 +5,8 @@ const featuredPostsContainer = document.querySelector(".slidesContainer");
 const featuredImageWrapper = document.querySelector(
   ".featuredPost .imgWrapper"
 );
+const reviewsPosts = document.querySelector(".reviewsPosts .listOfPosts");
+const categoriesWrapper = document.querySelector(".categories");
 
 // for (let i = 0; i < postHeader.length; i++) {
 //   console.log(postHeader[i].innerHTML);
@@ -23,9 +25,10 @@ async function getPosts(postsUrl) {
     featuredPostsContainer.innerHTML += `
     <li class="featuredPost">
               <div class="leftSide">
-                <div
+                <a href="blogSpecific.html"
                   class="imgWrapper"
                   style="
+                    display: block;
                     background: url(${post._embedded["wp:featuredmedia"][0].source_url});
                     width: 100%;
                     aspect-ratio: 16 / 9;
@@ -33,7 +36,7 @@ async function getPosts(postsUrl) {
                     background-position: 50% 50%;
                     background-repeat: no-repeat;
                   "
-                ></div>
+                ></a>
                 <div class="categories">
                   <a class="featured" href="#">${post._embedded["wp:term"][0][0].name}</a>
                   <a class="news" href="#">News</a>
@@ -63,8 +66,59 @@ async function getPosts(postsUrl) {
 
     for (let i = 0; i < post._embedded["wp:term"][0].length; i++) {
       console.log(post._embedded["wp:term"][0][i].name);
+
       if (post._embedded["wp:term"][0][i].name == "Reviews") {
+        console.log(post._embedded["wp:term"][0][i].name);
+
+        function category() {
+          console.log(post._embedded["wp:term"][0][i].name);
+          categoriesWrapper.innerHTML += `
+          <a class="${post._embedded["wp:term"][0][i].slug}" href="#">
+          ${post._embedded["wp:term"][0][i].name}
+          </a>
+          `;
+        }
+
         console.log(post.title.rendered);
+        reviewsPosts.innerHTML += `
+        <div class="postContainer">
+            <div class="imgWrapper"
+            style="
+                    background: url(${
+                      post._embedded["wp:featuredmedia"][0].source_url
+                    });
+                    width: 100%;
+                    aspect-ratio: 16 / 9;
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                  "
+            ></div>
+              <div class="categories">
+              ${category()}
+              </div>
+
+            <div class="postText">
+              <h4>${post.title.rendered}</h4>
+              <p>
+              ${post.excerpt.rendered}
+              </p>
+            </div>
+
+            <div class="posterInformation">
+              <div class="profilepicWrapper">
+                <a href="#"><img src="${
+                  post._embedded.author[0].avatar_urls[24]
+                }" alt="" /></a>
+              </div>
+
+              <div class="posterNameAndTitle">
+                <a href="#">${post._embedded.author[0].name}</a>
+                <p>Site owner</p>
+              </div>
+            </div>
+          </div>
+        `;
       }
     }
   });
@@ -76,7 +130,10 @@ async function getPosts(postsUrl) {
   }
 
   for (let i = 0; i < posts.length; i++) {
-    console.log(posts[i].tags);
+    console.log(posts[i]._embedded["wp:term"][0]);
+
+    if (posts[i]._embedded) {
+    }
   }
 }
 
