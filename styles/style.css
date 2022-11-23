@@ -227,12 +227,10 @@ header .login-signUpContainer a:nth-child(odd):hover {
 /* MAIN */
 
 main {
-  max-width: 1200px;
+  max-width: calc(1160px + 40px);
   margin: 170px auto;
+  padding: 0 2%;
   position: relative;
-  display: grid;
-  gap: 50px;
-  justify-items: center;
 }
 
 /* Latest */
@@ -387,10 +385,9 @@ main {
 /* News */
 
 .newsPosts {
-  margin-top: 100px;
+  margin: 50px 0;
   position: relative;
   overflow: hidden;
-  margin: 0 2%;
   box-sizing: content-box;
 }
 
@@ -405,7 +402,7 @@ main {
   position: absolute;
   border-bottom: 1px solid #bbb;
   border-right: 2px solid #bbb;
-  width: 33%;
+  width: 30%;
   left: 0;
   top: 0px;
   height: 59px;
@@ -419,7 +416,7 @@ main {
   position: absolute;
   border-bottom: 1px solid #bbb;
   border-left: 2px solid #bbb;
-  width: 34%;
+  width: 30%;
   right: 0;
   top: 0px;
   height: 59px;
@@ -434,7 +431,7 @@ main {
   margin: 0 auto;
   text-align: center;
   padding: 10px 0;
-  width: 38%;
+  width: 45%;
   /* z-index: 10; */
 }
 
@@ -609,7 +606,15 @@ main {
 
 .blogPostWrapper {
   display: grid;
-  /* gap: 50px; */
+}
+
+.blogPostWrapper .blogPostHeaderWrapper h1 {
+  margin-bottom: 0;
+}
+
+.blogPostWrapper .blogPostHeaderWrapper div {
+  text-align: center;
+  margin: 20px 0 50px;
 }
 
 .blogPostWrapper hr {
@@ -828,5 +833,20 @@ footer .socials i:hover {
 @media (max-width: 450px) {
   .newsPosts .listOfPosts {
     grid-template-columns: 1fr;
+  }
+
+  .newsPosts .headerwrapper::before {
+    width: 13%;
+  }
+
+  .newsPosts .headerwrapper::after {
+    width: 13%;
+  }
+
+  .newsPosts .headerwrapper::after {
+    right: -15px;
+  }
+  .newsPosts .headerwrapper::before {
+    left: -15px;
   }
 }

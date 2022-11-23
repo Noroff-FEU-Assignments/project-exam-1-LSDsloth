@@ -27,6 +27,7 @@ async function getPosts(postsUrl) {
     for (let i = 0; i < post._embedded["wp:term"][0].length; i++) {
       console.log(post._embedded["wp:term"][0]);
       console.log(post._embedded["wp:term"][0][i].name);
+      console.log(categoriesWrapper);
 
       console.log(post.date);
 
@@ -237,14 +238,17 @@ async function getPosts(postsUrl) {
 
   for (let i = 0; i < posts.length; i++) {
     console.log(posts[i]._embedded);
-    console.log(posts[i].excerpt);
     console.log(posts[i]);
   }
 
   for (let i = 0; i < posts.length; i++) {
     console.log(posts[i]._embedded["wp:term"][0]);
 
-    if (posts[i]._embedded) {
+    for (let n = 0; n < posts[i]._embedded["wp:term"][0].length; n++) {
+      console.log(posts[i]._embedded["wp:term"][0][n].name);
+      reviewsPosts.innerHTML += `
+      
+      `;
     }
   }
 }
