@@ -538,7 +538,7 @@ main {
 
 .newsletter {
   max-width: 570px;
-  margin: 100px 5%;
+  margin: 100px auto;
 }
 
 .newsletter .newsletterTopHalf {
