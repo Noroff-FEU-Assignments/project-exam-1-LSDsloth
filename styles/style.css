@@ -644,6 +644,7 @@ main {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  cursor: zoom-in;
 }
 
 .blogPostWrapper .blogPostThumbnail {
@@ -664,24 +665,37 @@ main {
   display: none;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 200;
+  cursor: zoom-out;
 }
 
 #modal #modalImage {
   position: absolute;
-  width: 90%;
+  width: 80%;
+  max-width: 1200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 #modal .closeModal {
-  /* position: absolute;
+  position: absolute;
   width: 50px;
   height: 50px;
-  right: 2%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  color: var(--primary-theme-color);
   top: 2%;
-  background-color: #bbbbbb50;
-  z-index: 300; */
+  right: 2%;
+  background-color: var(--secondary-background-color);
+  border-radius: 100%;
+  z-index: 300;
+  cursor: pointer;
+}
+
+#modal .closeModal:hover {
+  background-color: var(--primary-theme-color);
+  color: var(--secondary-background-color);
 }
 
 .blogPostWrapper .blogPostInformation {
