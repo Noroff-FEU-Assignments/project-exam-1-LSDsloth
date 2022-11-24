@@ -127,6 +127,11 @@ a {
   font-size: 14px;
 }
 
+.category {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .news {
   padding: 3px 20px;
   background-color: #4088b3;
@@ -227,8 +232,8 @@ header .login-signUpContainer a:nth-child(odd):hover {
 /* MAIN */
 
 main {
-  max-width: calc(1160px + 40px);
-  margin: 170px auto;
+  max-width: 1200px;
+  margin: calc(74px + 50px) auto;
   padding: 0 2%;
   position: relative;
 }
@@ -625,10 +630,62 @@ main {
 }
 
 .blogPostWrapper .blogPostThumbnailWrapper {
+  margin: 0 auto 3%;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+}
+
+.blogPostWrapper .blogPostThumbnailWrapper img {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blogPostWrapper .blogPostThumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 200;
+}
+
+#modal #modalImage {
+  position: absolute;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal .closeModal {
+  /* position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 2%;
+  top: 2%;
+  background-color: #bbbbbb50;
+  z-index: 300; */
 }
 
 .blogPostWrapper .blogPostInformation {
-  margin: 50px auto 0;
+  margin: 0 auto 5%;
   padding: 0 30px 10px;
   display: flex;
   gap: 30px;
@@ -648,7 +705,7 @@ main {
 
 .blogPostWrapper .blogPostText {
   max-width: 800px;
-  margin: 35px auto;
+  margin: 0 auto 3%;
   font-size: 20px;
 }
 

@@ -1,8 +1,7 @@
 const postsUrl =
   "https://libeck.tech/project_exam//wp-json/wp/v2/posts?per_page=10&_embed";
-
-const blogPostWrapper = document.querySelector(".blogPostWrapper");
 const queryString = document.location.search;
+
 console.log(queryString);
 
 const title = document.querySelector("title");
@@ -13,6 +12,14 @@ const params = new URLSearchParams(queryString);
 const slug = params.get("slug");
 
 console.log(slug);
+
+const header = document.querySelector("h1");
+const categories = document.querySelector(".categories");
+const thumbnailWrapper = document.querySelector(".blogPostThumbnailWrapper");
+const timeOfPost = document.querySelector(".blogPostInformation time");
+const authorName = document.querySelector(".authorName");
+const postText = document.querySelector(".blogPostText p");
+const postThumbnail = document.getElementById("thumbnail");
 
 async function post() {
   try {
@@ -26,39 +33,78 @@ async function post() {
 
         console.log(results[i].content.rendered);
 
-        blogPostWrapper.innerHTML += `
-        <div class="blogPostHeaderWrapper">
-          <h1>${results[i].title.rendered}</h1>
-          <div class="categories">
-            <a class="news" href="#">News</a>
-          </div>
-        </div>
+        header.innerHTML = results[i].title.rendered;
 
-        <div class="blogPostThumbnailWrapper">
-          <div
-            class="blogPostThumbnail"
-            style="
-              display: block;
-              background: url(${results[i]._embedded["wp:featuredmedia"][0].source_url});
-              width: 100%;
-              aspect-ratio: 16 / 9;
-              background-size: cover;
-              background-position: 50% 50%;
-              background-repeat: no-repeat;
-            "
-          ></div>
-        </div>
+        results[i]._embedded["wp:term"][0].forEach((category) => {
+          categories.innerHTML += `
+          <a class="${category.slug} category" href="#">
+          ${category.name}
+          </a>
+          `;
+        });
 
-        <div class="blogPostInformation">
-          <time>${results[i].date}</time>
-          <p>Author: <a href="#">${results[i]._embedded.author[0].name}</a></p>
-        </div>
-        <div class="blogPostText">
-          <p>
-            ${results[i].content.rendered}
-          </p>
-        </div>
-        `;
+        postThumbnail.src =
+          results[i]._embedded["wp:featuredmedia"][0].source_url;
+
+        // thumbnailWrapper.innerHTML += `
+        // <div class="blogPostThumbnail"
+        //   style="
+        //   background-image: url(${results[i]._embedded["wp:featuredmedia"][0].source_url});
+        // "
+        // onclick="onClick(this)"
+        //   ></div>
+        // `;
+
+        timeOfPost.innerHTML = results[i].date;
+        authorName.innerHTML = results[i]._embedded.author[0].name;
+        postText.innerHTML = results[i].content.rendered;
+
+        // blogPostWrapper.innerHTML += `
+        // <div class="blogPostHeaderWrapper">
+        //   <h1>${results[i].title.rendered}</h1>
+        //   <div class="categories">
+        //     <a class="news" href="#">News</a>
+        //   </div>
+        // </div>
+
+        // <div class="blogPostThumbnailWrapper">
+        //   <div
+        //     id="blogPostThumbnail"
+        //     style="
+        //       display: block;
+        //       background: url(${results[i]._embedded["wp:featuredmedia"][0].source_url});
+        //       width: 100%;
+        //       aspect-ratio: 16 / 9;
+        //       background-size: cover;
+        //       background-position: 50% 50%;
+        //       background-repeat: no-repeat;
+        //     "
+        //   ></div>
+        // </div>
+
+        // <div class="blogPostInformation">
+        //   <time>${results[i].date}</time>
+        //   <p>Author: <a href="#">${results[i]._embedded.author[0].name}</a></p>
+        // </div>
+        // <div class="blogPostText">
+        //   <p>
+        //     ${results[i].content.rendered}
+        //   </p>
+        // </div>
+        // `;
+
+        const featureimage = document.querySelector(".blogPostThumbnail");
+        featureimage.addEventListener("click", function () {
+          // featureimage.style.width = "50%";
+          console.log("You clicked the image");
+          featureimage.classList.add("model");
+        });
+
+        if (featureimage.style.width == "50%") {
+          featureimage.oncClick = function () {
+            featureimage.style.width = "200%";
+          };
+        }
 
         for (let n = 0; n < results[i].tags.length; n++) {
           console.log(results[i].tags[n].name);
@@ -79,3 +125,8 @@ async function post() {
 }
 
 post();
+
+function onClick(element) {
+  document.getElementById("modalImage").src = element.src;
+  document.getElementById("modal").style.display = "block";
+}
