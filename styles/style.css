@@ -493,6 +493,12 @@ main {
 
 .newsPosts .postContainer .imgWrapper {
   margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 .newsPosts .postContainer img {
@@ -685,8 +691,8 @@ main {
   line-height: 50px;
   font-size: 30px;
   color: var(--primary-theme-color);
-  top: 2%;
-  right: 2%;
+  top: 7%;
+  right: 5%;
   background-color: var(--secondary-background-color);
   border-radius: 100%;
   z-index: 300;

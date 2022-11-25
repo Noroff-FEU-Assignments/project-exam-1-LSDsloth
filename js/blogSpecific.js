@@ -55,7 +55,10 @@ async function post() {
         //   ></div>
         // `;
 
+        // console.log(data.date);
+
         timeOfPost.innerHTML = results[i].date;
+
         authorName.innerHTML = results[i]._embedded.author[0].name;
         postText.innerHTML = results[i].content.rendered;
 

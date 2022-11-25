@@ -21,219 +21,202 @@ async function getPosts(postsUrl) {
   const posts = await response.json();
   console.log(posts);
 
-  posts.forEach(function (post) {
-    console.log("Post with id: " + post.id);
+  // FEATURED POSTS
 
-    for (let i = 0; i < post._embedded["wp:term"][0].length; i++) {
-      console.log(post._embedded["wp:term"][0]);
-      console.log(post._embedded["wp:term"][0][i].name);
-      console.log(categoriesWrapper);
+  for (let i = 0; i < 4; i++) {
+    console.log(posts[i]);
 
-      console.log(post.date);
+    posts[i]._embedded["wp:term"][0].forEach((category) => {
+      console.log(category.name);
+      console.log(category);
 
-      // FEATURED POSTS
-
-      if (post._embedded["wp:term"][0][i].name == "Featured") {
-        post._embedded["wp:term"][0].forEach((category) => {
-          console.log(category.name);
-          console.log(category);
-        });
-
-        featuredPostsContainer.innerHTML += `
-            <li class="featuredPost">
-              <div class="leftSide">
-                <a href="blogSpecific.html?slug=${post.slug}"
-                  class="imgWrapper"
-                  style="
-                    display: block;
-                    background: url(${post._embedded["wp:featuredmedia"][0].source_url});
-                    width: 100%;
-                    aspect-ratio: 16 / 9;
-                    background-size: cover;
-                    background-position: 50% 50%;
-                    background-repeat: no-repeat;
-                  "
-                ></a>
-                <div class="categories">
-                <a class="${post._embedded["wp:term"][0][i].slug}" href="#">
-                ${post._embedded["wp:term"][0][i].name}
-                </a>
-                </div>
-              </div>
-
-              <div class="rightSide">
-                <div class="postText">
-                  <a href="blogSpecific.html?slug=${post.slug}"> <h3>${post.title.rendered}</h3> </a>
-                  <p>
-                    ${post.excerpt.rendered}
-                  </p>
-                </div>
-
-                <div class="posterInformation">
-                  <div class="profilepicWrapper">
-                    <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
-                  </div>
-
-                  <div class="posterNameAndTitle">
-                    <a href="#">${post._embedded.author[0].name}</a>
-                    <p>Site owner</p>
+      featuredPostsContainer.innerHTML += `
+              <li class="featuredPost">
+                <div class="leftSide">
+                  <a href="blogSpecific.html?slug=${posts[i].slug}"
+                    class="imgWrapper"
+                    style="
+                      display: block;
+                      background: url(${posts[i]._embedded["wp:featuredmedia"][0].source_url});
+                      width: 100%;
+                      aspect-ratio: 16 / 9;
+                      background-size: cover;
+                      background-position: 50% 50%;
+                      background-repeat: no-repeat;
+                    "
+                  ></a>
+                  <div class="categories">
+                  <a class="${category.slug}" href="#">
+                  ${category.name}
+                  </a>
                   </div>
                 </div>
-              </div>
-            `;
-      }
-
-      // NEWS POSTS
-
-      if (post._embedded["wp:term"][0][i].name == "News") {
-        console.log(post._embedded["wp:term"][0][i].name);
-
-        console.log(post.title.rendered);
-        newsPosts.innerHTML += `
-        <div class="postContainer">
-        <a href="blogSpecific.html?slug=${post.slug}"
-               class="imgWrapper"
-               style="
-                    display: block;
-                    background: url(${post._embedded["wp:featuredmedia"][0].source_url});
-                    width: 100%;
-                    aspect-ratio: 16 / 9;
-                    background-size: cover;
-                    background-position: 50% 50%;
-                    background-repeat: no-repeat;
-                  ">
-            </a>
-        <div class="detailsAboutPost">
-          <div class="categories">
-          <a class="${post._embedded["wp:term"][0][i].slug}" href="#">
-          ${post._embedded["wp:term"][0][i].name}
-          </a>
-          </div>
-
-          <div class="postText">
-          <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-            <p>
-            ${post.excerpt.rendered}
-            </p>
-          </div>
-
-          <div class="posterInformation">
-            <div class="profilepicWrapper">
-              <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
-            </div>
-
-            <div class="posterNameAndTitle">
-              <a href="#">${post._embedded.author[0].name}</a>
-              <p>Site owner</p>
-            </div>
-          </div>
-        </div>
-      </div>
-        `;
-      }
-
-      // TUTORIALS POSTS
-
-      if (post._embedded["wp:term"][0][i].name == "Tutorials") {
-        console.log(post._embedded["wp:term"][0][i].name);
-
-        console.log(post.title.rendered);
-        tutorialsPosts.innerHTML += `
-        <div class="postContainer">
-        <a href="blogSpecific.html?slug=${post.slug}"
-               class="imgWrapper"
-               style="
-                    display: block;
-                    background: url(${post._embedded["wp:featuredmedia"][0].source_url});
-                    width: 100%;
-                    aspect-ratio: 16 / 9;
-                    background-size: cover;
-                    background-position: 50% 50%;
-                    background-repeat: no-repeat;
-                  ">
-            </a>
-        <div class="detailsAboutPost">
-          <div class="categories">
-          <a class="${post._embedded["wp:term"][0][i].slug}" href="#">
-          ${post._embedded["wp:term"][0][i].name}
-          </a>
-          </div>
-
-          <div class="postText">
-          <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-            <p>
-            ${post.excerpt.rendered}
-            </p>
-          </div>
-
-          <div class="posterInformation">
-            <div class="profilepicWrapper">
-              <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
-            </div>
-
-            <div class="posterNameAndTitle">
-              <a href="#">${post._embedded.author[0].name}</a>
-              <p>Site owner</p>
-            </div>
-          </div>
-        </div>
-      </div>
-        `;
-      }
-
-      // REVIEWS POSTS
-
-      if (post._embedded["wp:term"][0][i].name == "Reviews") {
-        console.log(post._embedded["wp:term"][0][i].name);
-
-        console.log(post.title.rendered);
-        reviewsPosts.innerHTML += `
-        <div class="postContainer">
-        <a href="blogSpecific.html?slug=${post.slug}"
-               class="imgWrapper"
-               style="
-                    display: block;
-                    background: url(${post._embedded["wp:featuredmedia"][0].source_url});
-                    width: 100%;
-                    aspect-ratio: 16 / 9;
-                    background-size: cover;
-                    background-position: 50% 50%;
-                    background-repeat: no-repeat;
-                  ">
-            </a>
-        <div class="detailsAboutPost">
-          <div class="categories">
-          <a class="${post._embedded["wp:term"][0][i].slug}" href="#">
-          ${post._embedded["wp:term"][0][i].name}
-          </a>
-          </div>
-
-          <div class="postText">
-          <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-            <p>
-            ${post.excerpt.rendered}
-            </p>
-          </div>
-
-          <div class="posterInformation">
-            <div class="profilepicWrapper">
-              <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
-            </div>
-
-            <div class="posterNameAndTitle">
-              <a href="#">${post._embedded.author[0].name}</a>
-              <p>Site owner</p>
-            </div>
-
-            </div>
-            <div class="dateWrapper">
-              <p class="datePosted">${post.date}</p>
-            </div>
-        </div>
-      </div>
+                <div class="rightSide">
+                  <div class="postText">
+                    <a href="blogSpecific.html?slug=${posts[i].slug}"> <h3>${posts[i].title.rendered}</h3> </a>
+                    <p>
+                      ${posts[i].excerpt.rendered}
+                    </p>
+                  </div>
+                  <div class="posterInformation">
+                    <div class="profilepicWrapper">
+                      <a href="#"><img src="${posts[i]._embedded.author[0].avatar_urls[24]}" alt="" /></a>
+                    </div>
+                    <div class="posterNameAndTitle">
+                      <a href="#">${posts[i]._embedded.author[0].name}</a>
+                      <p>Site owner</p>
+                    </div>
+                  </div>
+                </div>
               `;
+    });
+  }
+
+  // NEWS POSTS
+
+  posts.forEach((post) => {
+    console.log(post);
+
+    post._embedded["wp:term"][0].forEach((category) => {
+      if (post._embedded["wp:term"][0][0].name == "News") {
+        newsPosts.innerHTML += `
+               <div class="postContainer">
+               <a href="blogSpecific.html?slug=${post.slug}"
+                      class="imgWrapper"
+                      style="
+                           display: block;
+                           background: url(${post._embedded["wp:featuredmedia"][0].source_url});
+                           width: 100%;
+                           aspect-ratio: 16 / 9;
+                           background-size: cover;
+                           background-position: 50% 50%;
+                           background-repeat: no-repeat;
+                         ">
+                   </a>
+               <div class="detailsAboutPost">
+                 <div class="categories">
+                 <a class="${category.slug}" href="#">
+                 ${category.name}
+                 </a>
+                 </div>
+                 <div class="postText">
+                 <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
+                   <p>
+                   ${post.excerpt.rendered}
+                   </p>
+                 </div>
+                 <div class="posterInformation">
+                   <div class="profilepicWrapper">
+                     <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
+                   </div>
+                   <div class="posterNameAndTitle">
+                     <a href="#">${post._embedded.author[0].name}</a>
+                     <p>Site owner</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+               `;
       }
-    }
+    });
+  });
+
+  //     // TUTORIALS POSTS
+
+  posts.forEach((post) => {
+    console.log(post);
+
+    post._embedded["wp:term"][0].forEach((category) => {
+      if (post._embedded["wp:term"][0][0].name == "Tutorials") {
+        tutorialsPosts.innerHTML += `
+               <div class="postContainer">
+               <a href="blogSpecific.html?slug=${post.slug}"
+                      class="imgWrapper"
+                      style="
+                           display: block;
+                           background: url(${post._embedded["wp:featuredmedia"][0].source_url});
+                           width: 100%;
+                           aspect-ratio: 16 / 9;
+                           background-size: cover;
+                           background-position: 50% 50%;
+                           background-repeat: no-repeat;
+                         ">
+                   </a>
+               <div class="detailsAboutPost">
+                 <div class="categories">
+                 <a class="${category.slug}" href="#">
+                 ${category.name}
+                 </a>
+                 </div>
+                 <div class="postText">
+                 <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
+                   <p>
+                   ${post.excerpt.rendered}
+                   </p>
+                 </div>
+                 <div class="posterInformation">
+                   <div class="profilepicWrapper">
+                     <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
+                   </div>
+                   <div class="posterNameAndTitle">
+                     <a href="#">${post._embedded.author[0].name}</a>
+                     <p>Site owner</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+               `;
+      }
+    });
+  });
+
+  //     // REVIEWS POSTS
+
+  posts.forEach((post) => {
+    console.log(post);
+
+    post._embedded["wp:term"][0].forEach((category) => {
+      if (post._embedded["wp:term"][0][0].name == "Reviews") {
+        reviewsPosts.innerHTML += `
+               <div class="postContainer">
+               <a href="blogSpecific.html?slug=${post.slug}"
+                      class="imgWrapper"
+                      style="
+                           display: block;
+                           background: url(${post._embedded["wp:featuredmedia"][0].source_url});
+                           width: 100%;
+                           aspect-ratio: 16 / 9;
+                           background-size: cover;
+                           background-position: 50% 50%;
+                           background-repeat: no-repeat;
+                         ">
+                   </a>
+               <div class="detailsAboutPost">
+                 <div class="categories">
+                 <a class="${category.slug}" href="#">
+                 ${category.name}
+                 </a>
+                 </div>
+                 <div class="postText">
+                 <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
+                   <p>
+                   ${post.excerpt.rendered}
+                   </p>
+                 </div>
+                 <div class="posterInformation">
+                   <div class="profilepicWrapper">
+                     <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
+                   </div>
+                   <div class="posterNameAndTitle">
+                     <a href="#">${post._embedded.author[0].name}</a>
+                     <p>Site owner</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+               `;
+      }
+    });
   });
 
   for (let i = 0; i < posts.length; i++) {
