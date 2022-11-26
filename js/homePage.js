@@ -1,4 +1,6 @@
 const postsUrl = "https://libeck.tech/project_exam//wp-json/wp/v2/posts?_embed";
+// const rightSide = document.querySelector(".rightSide");
+const leftSideImage = document.querySelector(".leftSide img");
 const postHeader = document.querySelector(".rightSide h3");
 const featuredPost = document.querySelector(".featuredPost");
 const featuredPostsContainer = document.querySelector(".slidesContainer");
@@ -21,6 +23,8 @@ async function getPosts(postsUrl) {
   const posts = await response.json();
   console.log(posts);
 
+  // rightSide.style.height = leftSideImage.style.height;
+
   // FEATURED POSTS
 
   for (let i = 0; i < 4; i++) {
@@ -33,7 +37,7 @@ async function getPosts(postsUrl) {
       featuredPostsContainer.innerHTML += `
               <li class="featuredPost">
                 <div class="leftSide">
-                  <a href="blogSpecific.html?slug=${posts[i].slug}"
+                  <a class="leftSideimg" href="blogSpecific.html?slug=${posts[i].slug}"
                     class="imgWrapper"
                     style="
                       display: block;
@@ -68,7 +72,7 @@ async function getPosts(postsUrl) {
                     </div>
                   </div>
                 </div>
-              `;
+                `;
     });
   }
 

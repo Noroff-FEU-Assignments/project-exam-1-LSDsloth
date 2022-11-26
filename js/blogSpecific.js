@@ -55,7 +55,7 @@ async function post() {
         //   ></div>
         // `;
 
-        // console.log(data.date);
+        
 
         timeOfPost.innerHTML = results[i].date;
 
