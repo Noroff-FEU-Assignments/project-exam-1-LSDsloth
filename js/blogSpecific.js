@@ -55,8 +55,6 @@ async function post() {
         //   ></div>
         // `;
 
-        
-
         timeOfPost.innerHTML = results[i].date;
 
         authorName.innerHTML = results[i]._embedded.author[0].name;
@@ -129,7 +127,22 @@ async function post() {
 
 post();
 
+const modal = document.getElementById("modal");
+const modalImage = document.getElementById("modalImage");
+const thumbnail = document.querySelector("#thumbnail");
+const html = document.querySelector("html");
+
 function onClick(element) {
-  document.getElementById("modalImage").src = element.src;
-  document.getElementById("modal").style.display = "block";
+  modalImage.src = element.src;
+  modal.style.display = "block";
+}
+
+modal.addEventListener("click", htmlScroll);
+function htmlScroll() {
+  html.style.overflow = "auto";
+}
+
+thumbnail.addEventListener("click", htmlNotScroll);
+function htmlNotScroll() {
+  html.style.overflow = "hidden";
 }
