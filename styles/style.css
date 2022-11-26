@@ -763,7 +763,7 @@ footer .socials i:hover {
 
 @media (max-width: 800px) {
   main {
-    padding: inherit 20px;
+    padding: inherit 15px;
   }
   .newsPosts .listOfPosts {
     grid-template-columns: 1fr 1fr;
