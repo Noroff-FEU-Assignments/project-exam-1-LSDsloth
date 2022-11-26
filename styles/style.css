@@ -894,6 +894,10 @@ footer .socials i:hover {
   .newsPosts .headerwrapper h2 {
     width: 100%;
   }
+
+  #modal #modalImage {
+    width: 100%;
+  }
 }
 
 @media (max-width: 500px) {
