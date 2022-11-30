@@ -31,7 +31,7 @@
 :root {
   --primary-text-color: #e1e1e1;
   --primary-background-color: #080b0f;
-  --secondary-background-color: #0b0f14;
+  --secondary-background-color: #0e141a;
   --primary-theme-color: #d6ed17;
 }
 
@@ -346,6 +346,11 @@ main {
   justify-content: space-between;
   width: 50%;
   gap: 20px;
+}
+
+.postText a:hover {
+  text-decoration: underline;
+  color: var(--primary-text-color);
 }
 
 .carousellWrapper .rightSide .postText p {
@@ -713,6 +718,11 @@ main {
 
 /* CONTACT */
 
+.contentWidth {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 #contactForm {
   max-width: 300px;
   margin: 100px auto 0;
@@ -764,6 +774,19 @@ main {
   font-size: 14px;
   margin-left: 5px;
   display: none;
+}
+
+#contactForm button {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  border-radius: 40px;
+  background-color: var(--primary-theme-color);
+  color: #000;
+  text-align: center;
+  line-height: 30px;
+  border: none;
+  cursor: pointer;
 }
 
 /* FOOTER */

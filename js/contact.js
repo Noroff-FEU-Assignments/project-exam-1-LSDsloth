@@ -38,10 +38,12 @@ function formValidation() {
   }
 
   if (
-    emailValidation(email.value) === true &&
-    password.value.trim().length >= 8
+    name.value.trim().length >= 2 &&
+    subject.value.trim().length >= 1 &&
+    message.value.trim().length >= 10 &&
+    emailValidation(email.value) === true
   ) {
-    window.location.href = "support.html";
+    alert("An email has been successfully sent to support@tech.com");
   }
 }
 
