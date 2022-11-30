@@ -138,7 +138,6 @@ function onClick(element) {
 }
 
 modal.addEventListener("click", htmlScroll);
-modal.addEventListener("keydown", htmlScroll);
 function htmlScroll() {
   html.style.overflow = "auto";
 }
