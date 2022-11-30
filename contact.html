@@ -44,6 +44,64 @@
     </header>
     <!-- Main -->
     <main>
+      <h1>Contact us</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
+        laborum quisquam dignissimos beatae dolorum totam eveniet adipisci et
+        dolores id.
+      </p>
+
+      <form id="contactForm" action="post">
+        <div class="formNameContainer formTextbox">
+          <!-- <label for="fullname">Name</label> -->
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder="Name"
+            autofocus
+          />
+          <span id="formNameError">Your name needs atleast 2 characters</span>
+        </div>
+
+        <div class="formEmailContainer formTextbox">
+          <!-- <label for="email">Email address</label> -->
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email address"
+          />
+          <span id="formEmailError">Email is invalid</span>
+        </div>
+
+        <div class="formSubjectContainer formTextbox">
+          <!-- <label for="subject">Subject</label> -->
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            placeholder="Subject"
+          />
+          <span id="formSubjectError">Write a subject</span>
+        </div>
+
+        <div class="formMessageContainer formTextbox">
+          <!-- <label for="message">Your message</label> -->
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Your message..."
+          ></textarea>
+          <span id="formTextareaError"
+            >Message needs to be atleast 10 characters</span
+          >
+        </div>
+
+        <button type="submit">Send</button>
+      </form>
     </main>
 
     <footer>
@@ -62,5 +120,6 @@
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
       </section>
     </footer>
+    <script src="js/contact.js"></script>
   </body>
 </html>

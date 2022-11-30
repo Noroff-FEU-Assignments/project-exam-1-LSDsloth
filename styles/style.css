@@ -85,7 +85,6 @@ h2 {
 h3 {
   color: var(--primary-text-color);
   font-size: 2rem;
-  color: #e1e1e1;
   font-family: Oswald-Regular;
   font-weight: 600;
   margin-bottom: 10px;
@@ -123,7 +122,7 @@ a {
   padding: 3px 20px;
   background-color: #40b36a;
   border-radius: 100px;
-  color: #e1e1e1;
+  color: var(--primary-text-color);
   font-size: 14px;
 }
 
@@ -136,7 +135,7 @@ a {
   padding: 3px 20px;
   background-color: #4088b3;
   border-radius: 100px;
-  color: #e1e1e1;
+  color: var(--primary-text-color);
   font-size: 14px;
 }
 
@@ -144,7 +143,7 @@ a {
   padding: 5px 20px;
   background-color: #b34040;
   border-radius: 100px;
-  color: #e1e1e1;
+  color: var(--primary-text-color);
   font-size: 14px;
 }
 
@@ -710,6 +709,61 @@ main {
   max-width: 800px;
   margin: 0 auto 3%;
   font-size: 20px;
+}
+
+/* CONTACT */
+
+#contactForm {
+  max-width: 300px;
+  margin: 100px auto 0;
+  display: grid;
+  gap: 20px;
+}
+
+.formTextbox {
+}
+
+.formTextbox > label {
+  display: block;
+}
+
+.formTextbox > input {
+  background: none;
+  border: none;
+  outline: none;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  font-size: rem;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.formTextbox > input:focus {
+  border-bottom: 2px solid var(--primary-theme-color);
+}
+
+.formTextbox > input::placeholder {
+  font-family: Roboto-Regular;
+  font-size: 1rem;
+}
+
+.formTextbox > textarea {
+  width: 100%;
+  padding: 7px;
+  color: var(--primary-text-color);
+  font-family: Roboto-Regular;
+  font-size: 1rem;
+  background-color: var(--secondary-background-color);
+  border: none;
+  resize: vertical;
+}
+
+.formTextbox span {
+  color: red;
+  font-size: 14px;
+  margin-left: 5px;
+  display: none;
 }
 
 /* FOOTER */
