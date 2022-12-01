@@ -5,13 +5,10 @@ const queryString = document.location.search;
 console.log(queryString);
 
 const title = document.querySelector("title");
-console.log(title);
 
 const params = new URLSearchParams(queryString);
 
 const slug = params.get("slug");
-
-console.log(slug);
 
 const header = document.querySelector("h1");
 const categories = document.querySelector(".categories");
@@ -28,10 +25,7 @@ async function post() {
 
     for (let i = 0; i < results.length; i++) {
       if (results[i].slug === slug) {
-        console.log(results[i].title.rendered);
         title.innerHTML += " " + results[i].title.rendered;
-
-        console.log(results[i].content.rendered);
 
         header.innerHTML = results[i].title.rendered;
 
@@ -46,53 +40,50 @@ async function post() {
         postThumbnail.src =
           results[i]._embedded["wp:featuredmedia"][0].source_url;
 
-        // thumbnailWrapper.innerHTML += `
-        // <div class="blogPostThumbnail"
-        //   style="
-        //   background-image: url(${results[i]._embedded["wp:featuredmedia"][0].source_url});
-        // "
-        // onclick="onClick(this)"
-        //   ></div>
-        // `;
+        const date = results[i].date;
+        console.log(date);
+        let newDate = new Date(date);
+        let year = newDate.getFullYear();
+        let month = newDate.getMonth() + 1;
+        let day = newDate.getDate();
 
-        timeOfPost.innerHTML = results[i].date;
+        if (month === 1) {
+          month = "January";
+        } else if (month === 2) {
+          month = "February";
+        } else if (month === 3) {
+          month = "March";
+        } else if (month === 4) {
+          month = "April";
+        } else if (month === 5) {
+          month = "May";
+        } else if (month === 6) {
+          month = "June";
+        } else if (month === 7) {
+          month = "July";
+        } else if (month === 8) {
+          month = "August";
+        } else if (month === 9) {
+          month = "September";
+        } else if (month === 10) {
+          month = "October";
+        } else if (month === 11) {
+          month = "Novermber";
+        } else if (month === 12) {
+          month = "December";
+        }
+
+        console.log(day);
+        console.log(month);
+        console.log(year);
+        console.log(newDate);
+        const postDate = day + ". " + month + " " + year;
+        console.log(postDate);
+
+        timeOfPost.innerHTML = postDate;
 
         authorName.innerHTML = results[i]._embedded.author[0].name;
         postText.innerHTML = results[i].content.rendered;
-
-        // blogPostWrapper.innerHTML += `
-        // <div class="blogPostHeaderWrapper">
-        //   <h1>${results[i].title.rendered}</h1>
-        //   <div class="categories">
-        //     <a class="news" href="#">News</a>
-        //   </div>
-        // </div>
-
-        // <div class="blogPostThumbnailWrapper">
-        //   <div
-        //     id="blogPostThumbnail"
-        //     style="
-        //       display: block;
-        //       background: url(${results[i]._embedded["wp:featuredmedia"][0].source_url});
-        //       width: 100%;
-        //       aspect-ratio: 16 / 9;
-        //       background-size: cover;
-        //       background-position: 50% 50%;
-        //       background-repeat: no-repeat;
-        //     "
-        //   ></div>
-        // </div>
-
-        // <div class="blogPostInformation">
-        //   <time>${results[i].date}</time>
-        //   <p>Author: <a href="#">${results[i]._embedded.author[0].name}</a></p>
-        // </div>
-        // <div class="blogPostText">
-        //   <p>
-        //     ${results[i].content.rendered}
-        //   </p>
-        // </div>
-        // `;
 
         const featureimage = document.querySelector(".blogPostThumbnail");
         featureimage.addEventListener("click", function () {

@@ -335,7 +335,7 @@ main {
   /* background-color: red; */
 }
 
-.carousellWrapper .leftSide .categories {
+.carousellWrapper .leftSide .category {
   margin-top: 10px;
   position: absolute;
 }
@@ -364,8 +364,30 @@ main {
 
 .posterInformation {
   display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.poster {
+  display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.timeOfPost {
+  align-self: center;
+}
+
+.timeOfPost i {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.timeOfPost time {
+  color: #aaa;
+  font-size: 14px;
+  align-self: center;
 }
 
 .dateWrapper {
@@ -491,8 +513,10 @@ main {
   width: 100%;
 }
 
-.newsPosts .postContainer .categories {
+.newsPosts .postContainer .categoryAndDate {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .newsPosts .postContainer .postText {
@@ -525,6 +549,7 @@ main {
   margin: 0 auto;
   display: block;
   width: 30%;
+  min-width: 140px;
   border-radius: 40px;
   background-color: var(--primary-theme-color);
   color: #000;
@@ -954,7 +979,7 @@ footer .socials i:hover {
   .carousellWrapper .rightSide {
     width: 100%;
   }
-  .carousellWrapper .leftSide .categories {
+  .carousellWrapper .leftSide .category {
     position: static;
   }
 
@@ -995,5 +1020,11 @@ footer .socials i:hover {
   }
   .newsPosts .headerwrapper::before {
     left: -15px;
+  }
+
+  .posterInformation {
+    flex-direction: column;
+    gap: 10px;
+    align-self: flex-start;
   }
 }
