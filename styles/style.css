@@ -127,8 +127,7 @@ a {
 }
 
 .category {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 0 0 20px;
 }
 
 .news {
@@ -149,7 +148,7 @@ a {
 
 .reviews {
   padding: 5px 20px;
-  background-color: #b38940;
+  background-color: #40b346;
   border-radius: 100px;
   color: var(--primary-text-color);
   font-size: 14px;
@@ -354,7 +353,7 @@ main {
 }
 
 .carousellWrapper .rightSide .postText p {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .carousellWrapper img {
@@ -492,7 +491,6 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px 20px;
-  margin-bottom: 50px;
 }
 
 .newsPosts .postContainer {
@@ -542,19 +540,22 @@ main {
 }
 
 .seeMoreContainer {
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .seeMoreContainer .seeMore {
   margin: 0 auto;
   display: block;
-  width: 30%;
-  min-width: 140px;
+  width: 50%;
+  min-width: 160px;
+  max-width: 350px;
   border-radius: 40px;
   background-color: var(--primary-theme-color);
   color: #000;
   text-align: center;
   line-height: 35px;
+  border: none;
+  cursor: pointer;
 }
 
 /* NEWSLETTER */
@@ -631,13 +632,19 @@ main {
   display: grid;
 }
 
-.blogPostWrapper .blogPostHeaderWrapper h1 {
-  margin-bottom: 0;
+.blogPostWrapper .blogPostHeaderWrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.blogPostWrapper .blogPostHeaderWrapper div {
+.blogPostWrapper .blogPostHeaderWrapper h1 {
+  text-align: left;
+}
+
+.blogPostWrapper .blogPostHeaderWrapper .category {
+  margin: 20px auto 50px;
   text-align: center;
-  margin: 20px 0 50px;
 }
 
 .blogPostWrapper hr {
@@ -658,11 +665,11 @@ main {
 
 .blogPostWrapper .blogPostThumbnailWrapper img {
   position: absolute;
-  height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   cursor: zoom-in;
+  width: 100%;
 }
 
 .blogPostWrapper .blogPostThumbnail {
@@ -729,6 +736,7 @@ main {
 .blogPostWrapper .blogPostInformation a {
   color: #bbb;
   font-size: 14px;
+  align-self: center;
 }
 
 .blogPostWrapper .blogPostInformation a:hover {
@@ -768,7 +776,7 @@ main {
   outline: none;
   background-color: var(--secondary-background-color);
   color: var(--primary-text-color);
-  font-size: rem;
+  font-size: 1rem;
   width: 100%;
   padding: 5px;
   margin-bottom: 5px;
@@ -962,8 +970,8 @@ footer .socials i:hover {
     text-align: center;
   }
 
-  h1 {
-    margin-left: 20px;
+  main {
+    padding-inline: 0;
   }
 
   .slideButtonPrevious,
@@ -973,6 +981,7 @@ footer .socials i:hover {
 
   .carousellWrapper .featuredPost {
     flex-direction: column;
+    gap: 10px;
   }
 
   .carousellWrapper .leftSide,
@@ -981,6 +990,10 @@ footer .socials i:hover {
   }
   .carousellWrapper .leftSide .category {
     position: static;
+  }
+
+  .newsPosts {
+    margin-inline: 2%;
   }
 
   .newsPosts .headerwrapper::before {
@@ -997,8 +1010,20 @@ footer .socials i:hover {
     width: 100%;
   }
 
+  .blogPostWrapper .blogPostHeaderWrapper {
+    padding-inline: 2%;
+  }
+
   #modal #modalImage {
     width: 100%;
+  }
+
+  .blogPostWrapper .blogPostText {
+    padding-inline: 2%;
+  }
+
+  .newsletter {
+    padding-inline: 2%;
   }
 }
 

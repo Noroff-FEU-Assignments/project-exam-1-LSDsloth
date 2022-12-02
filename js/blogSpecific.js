@@ -11,7 +11,7 @@ const params = new URLSearchParams(queryString);
 const slug = params.get("slug");
 
 const header = document.querySelector("h1");
-const categories = document.querySelector(".categories");
+const categories = document.querySelector(".category");
 const thumbnailWrapper = document.querySelector(".blogPostThumbnailWrapper");
 const timeOfPost = document.querySelector(".blogPostInformation time");
 const authorName = document.querySelector(".authorName");
