@@ -323,19 +323,35 @@ main {
   position: relative;
 }
 
+.carousellWrapper .leftSide .leftSideimg,
+.newsPosts .postContainer .imgWrapper {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousellWrapper .leftSide .leftSideimg img,
+.newsPosts .postContainer .imgWrapper img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .carousellWrapper .leftSide .imgWrapper,
 .newsPosts .postContainer .imgWrapper {
-  /* background: url(/images/testimg.jpg), #eee; */
   width: 100%;
   aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  /* background-color: red; */
 }
 
 .carousellWrapper .leftSide .category {
-  margin-top: 10px;
+  margin-top: 20px;
   position: absolute;
 }
 
@@ -498,17 +514,18 @@ main {
 }
 
 .newsPosts .postContainer .imgWrapper {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
 }
 
-.newsPosts .postContainer img {
-  width: 100%;
+.bildeContainer {
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
 
 .newsPosts .postContainer .categoryAndDate {
@@ -800,7 +817,9 @@ main {
   font-size: 1rem;
   background-color: var(--secondary-background-color);
   border: none;
+  border-radius: 10px;
   resize: vertical;
+  outline: none;
 }
 
 .formTextbox span {

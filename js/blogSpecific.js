@@ -1,5 +1,5 @@
 const postsUrl =
-  "https://libeck.tech/project_exam//wp-json/wp/v2/posts?per_page=10&_embed";
+  "https://libeck.tech/project_exam//wp-json/wp/v2/posts?per_page=15&_embed";
 const queryString = document.location.search;
 
 console.log(queryString);

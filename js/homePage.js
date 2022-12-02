@@ -71,18 +71,9 @@ async function getPosts(latestUrl) {
       featuredPostsContainer.innerHTML += `
               <li class="featuredPost">
                 <div class="leftSide">
-                  <a class="leftSideimg" href="blogSpecific.html?slug=${posts[i].slug}"
-                    class="imgWrapper"
-                    style="
-                      display: block;
-                      background: url(${posts[i]._embedded["wp:featuredmedia"][0].source_url});
-                      width: 100%;
-                      aspect-ratio: 16 / 9;
-                      background-size: cover;
-                      background-position: 50% 50%;
-                      background-repeat: no-repeat;
-                    "
-                  ></a>
+                  <a class="leftSideimg" href="blogSpecific.html?slug=${posts[i].slug}" class="imgWrapper">
+                  <img src="${posts[i]._embedded["wp:featuredmedia"][0].source_url}" alt="${posts[i]._embedded["wp:featuredmedia"][0].alt_text}">
+                  </a>
                   <div class="category">
                   <a class="${category.slug}" href="#">
                   ${category.name}
@@ -174,49 +165,40 @@ async function getNewsPosts(newsUrl) {
       console.log(postDate);
 
       newsPosts.innerHTML += `
-             <div class="postContainer">
-                <a href="blogSpecific.html?slug=${post.slug}"
-                  class="imgWrapper"
-                  style="
-                        display: block;
-                        background: url(${post._embedded["wp:featuredmedia"][0].source_url});
-                        width: 100%;
-                        aspect-ratio: 16 / 9;
-                        background-size: cover;
-                        background-position: 50% 50%;
-                        background-repeat: no-repeat;
-                      ">
-                </a>
-                <div class="detailsAboutPost">
-                  <div class="category">
-                    <a class="${category.slug}" href="#">
-                    ${category.name}
-                    </a>
-                  </div>
-                  
-                  <div class="postText">
-                    <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-                    <p>
-                    ${post.excerpt.rendered}
-                    </p>
-                  </div>
-                  <div class="posterInformation">
-                    <div class="poster">
-                      <div class="profilepicWrapper">
-                        <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
-                      </div>
-                      <div class="posterNameAndTitle">
-                        <a href="#">${post._embedded.author[0].name}</a>
-                        <p>Site owner</p>
-                      </div>
-                      </div>
-                      <div class="timeOfPost">
-                      <i class="fa-regular fa-clock"></i>
-                      <time>${postDate}</time>
-                      </div>
-                  </div>
-                </div>
+      <div class="postContainer">
+      <a href="blogSpecific.html?slug=${post.slug}" class="imgWrapper">
+        <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post._embedded["wp:featuredmedia"][0].alt_text}">
+      </a>
+      <div class="detailsAboutPost">
+        <div class="category">
+          <a class="${category.slug}" href="#">
+          ${category.name}
+          </a>
+        </div>
+        
+        <div class="postText">
+          <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
+          <p>
+          ${post.excerpt.rendered}
+          </p>
+        </div>
+        <div class="posterInformation">
+          <div class="poster">
+            <div class="profilepicWrapper">
+              <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
             </div>
+            <div class="posterNameAndTitle">
+              <a href="#">${post._embedded.author[0].name}</a>
+              <p>Site owner</p>
+            </div>
+            </div>
+            <div class="timeOfPost">
+            <i class="fa-regular fa-clock"></i>
+            <time>${postDate}</time>
+            </div>
+        </div>
+      </div>
+  </div>
              `;
     });
   });
@@ -279,49 +261,40 @@ async function getTutorialsPosts(tutorialsUrl) {
       console.log(postDate);
 
       tutorialsPosts.innerHTML += `
-             <div class="postContainer">
-                <a href="blogSpecific.html?slug=${post.slug}"
-                  class="imgWrapper"
-                  style="
-                        display: block;
-                        background: url(${post._embedded["wp:featuredmedia"][0].source_url});
-                        width: 100%;
-                        aspect-ratio: 16 / 9;
-                        background-size: cover;
-                        background-position: 50% 50%;
-                        background-repeat: no-repeat;
-                      ">
-                </a>
-                <div class="detailsAboutPost">
-                  <div class="category">
-                    <a class="${category.slug}" href="#">
-                    ${category.name}
-                    </a>
-                  </div>
-                  
-                  <div class="postText">
-                    <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-                    <p>
-                    ${post.excerpt.rendered}
-                    </p>
-                  </div>
-                  <div class="posterInformation">
-                    <div class="poster">
-                      <div class="profilepicWrapper">
-                        <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
-                      </div>
-                      <div class="posterNameAndTitle">
-                        <a href="#">${post._embedded.author[0].name}</a>
-                        <p>Site owner</p>
-                      </div>
-                      </div>
-                      <div class="timeOfPost">
-                      <i class="fa-regular fa-clock"></i>
-                      <time>${postDate}</time>
-                      </div>
-                  </div>
-                </div>
+      <div class="postContainer">
+      <a href="blogSpecific.html?slug=${post.slug}" class="imgWrapper">
+        <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post._embedded["wp:featuredmedia"][0].alt_text}">
+      </a>
+      <div class="detailsAboutPost">
+        <div class="category">
+          <a class="${category.slug}" href="#">
+          ${category.name}
+          </a>
+        </div>
+        
+        <div class="postText">
+          <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
+          <p>
+          ${post.excerpt.rendered}
+          </p>
+        </div>
+        <div class="posterInformation">
+          <div class="poster">
+            <div class="profilepicWrapper">
+              <a href="#"><img src="${post._embedded.author[0].avatar_urls[24]}" alt="" /></a>
             </div>
+            <div class="posterNameAndTitle">
+              <a href="#">${post._embedded.author[0].name}</a>
+              <p>Site owner</p>
+            </div>
+            </div>
+            <div class="timeOfPost">
+            <i class="fa-regular fa-clock"></i>
+            <time>${postDate}</time>
+            </div>
+        </div>
+      </div>
+  </div>
              `;
     });
   });
@@ -385,17 +358,8 @@ async function getReviewsPosts(reviewsUrl) {
 
       reviewsPosts.innerHTML += `
              <div class="postContainer">
-                <a href="blogSpecific.html?slug=${post.slug}"
-                  class="imgWrapper"
-                  style="
-                        display: block;
-                        background: url(${post._embedded["wp:featuredmedia"][0].source_url});
-                        width: 100%;
-                        aspect-ratio: 16 / 9;
-                        background-size: cover;
-                        background-position: 50% 50%;
-                        background-repeat: no-repeat;
-                      ">
+                <a href="blogSpecific.html?slug=${post.slug}" class="imgWrapper">
+                  <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post._embedded["wp:featuredmedia"][0].alt_text}">
                 </a>
                 <div class="detailsAboutPost">
                   <div class="category">
