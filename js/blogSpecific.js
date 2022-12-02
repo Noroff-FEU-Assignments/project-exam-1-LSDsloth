@@ -14,6 +14,7 @@ const header = document.querySelector("h1");
 const categories = document.querySelector(".category");
 const thumbnailWrapper = document.querySelector(".blogPostThumbnailWrapper");
 const timeOfPost = document.querySelector(".blogPostInformation time");
+const profilepicWrapper = document.querySelector(".profilepicWrapper a");
 const authorName = document.querySelector(".authorName");
 const postText = document.querySelector(".blogPostText p");
 const postThumbnail = document.getElementById("thumbnail");
@@ -82,6 +83,7 @@ async function post() {
 
         timeOfPost.innerHTML = postDate;
 
+        profilepicWrapper.innerHTML = `<img src="${results[i]._embedded.author[0].avatar_urls[24]}" alt="" />`;
         authorName.innerHTML = results[i]._embedded.author[0].name;
         postText.innerHTML = results[i].content.rendered;
 

@@ -760,6 +760,12 @@ main {
   color: var(--primary-theme-color);
 }
 
+.blogPostInformation .poster .authorName {
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  font-family: Roboto-Medium;
+}
+
 .blogPostWrapper .blogPostText {
   max-width: 800px;
   margin: 0 auto 3%;
@@ -771,6 +777,7 @@ main {
 .contentWidth {
   max-width: 800px;
   margin: 0 auto;
+  padding-inline: 2%;
 }
 
 #contactForm {
