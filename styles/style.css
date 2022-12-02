@@ -88,7 +88,7 @@ h3 {
   font-family: Oswald-Regular;
   font-weight: 600;
   margin-bottom: 10px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 37px;
 }
 
@@ -656,7 +656,13 @@ main {
 }
 
 .blogPostWrapper .blogPostHeaderWrapper h1 {
-  text-align: left;
+  font-size: 3rem;
+  text-align: center;
+  font-family: Oswald-Regular;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  line-height: 53px;
 }
 
 .blogPostWrapper .blogPostHeaderWrapper .category {
