@@ -16,8 +16,9 @@ const thumbnailWrapper = document.querySelector(".blogPostThumbnailWrapper");
 const timeOfPost = document.querySelector(".blogPostInformation time");
 const profilepicWrapper = document.querySelector(".profilepicWrapper a");
 const authorName = document.querySelector(".authorName");
-const postText = document.querySelector(".blogPostText p");
+const postText = document.querySelector(".blogPostText div");
 const postThumbnail = document.getElementById("thumbnail");
+const listOfComments = document.querySelector(".listOfComments");
 
 async function post() {
   try {

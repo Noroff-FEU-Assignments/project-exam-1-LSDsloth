@@ -50,6 +50,8 @@ html {
 
 body {
   min-height: 100%;
+  padding-bottom: 200px;
+  position: relative;
 }
 
 body::-webkit-scrollbar {
@@ -94,12 +96,12 @@ h3 {
 
 h4 {
   color: var(--primary-text-color);
-  font-size: 1.5rem;
+  font-size: 1.875rem;
   font-family: Oswald-Medium;
   font-weight: 100;
   margin-bottom: 10px;
   letter-spacing: 1px;
-  line-height: 30px;
+  line-height: 35px;
 }
 
 h5 {
@@ -370,6 +372,7 @@ main {
 
 .carousellWrapper .rightSide .postText p {
   font-size: 1.125rem;
+  color: #ccc;
 }
 
 .carousellWrapper img {
@@ -541,6 +544,7 @@ main {
 
 .newsPosts .postContainer .postText p {
   color: #ccc;
+  font-size: 1.125rem;
 }
 
 .newsPosts .postContainer .profilepicWrapper {
@@ -656,10 +660,7 @@ main {
 }
 
 .blogPostWrapper .blogPostHeaderWrapper h1 {
-  font-size: 3rem;
-  text-align: center;
   font-family: Oswald-Regular;
-  font-weight: 600;
   margin-bottom: 10px;
   letter-spacing: 1px;
   line-height: 53px;
@@ -778,6 +779,37 @@ main {
   font-size: 20px;
 }
 
+.blogPostWrapper .blogPostText hr {
+  margin-top: 50px;
+  border: 1px solid #555;
+  max-width: inherit;
+}
+
+.commentSection {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.commentSection #commentForm {
+  width: 100%;
+}
+
+.commentSection #commentForm #commentTextArea {
+  width: 100%;
+  padding: 10px;
+  background-color: #0b0f14;
+  border: 1px solid #0e141a;
+  resize: vertical;
+  font-size: 1rem;
+  font-family: Roboto-Regular;
+  color: var(--primary-text-color);
+}
+
+.aPostReply {
+  margin-left: 50px;
+}
+
 /* CONTACT */
 
 .contentWidth {
@@ -855,10 +887,25 @@ main {
   cursor: pointer;
 }
 
+/* ABOUT PAGE */
+
+.aboutContainer {
+  max-width: 800px;
+  padding: 2%;
+  margin: 0 auto;
+}
+
+.aboutContainer p {
+  font-size: 1.25rem;
+}
+
 /* FOOTER */
 
 footer {
   height: 200px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
   background-color: var(--secondary-background-color);
   text-align: center;
   display: flex;

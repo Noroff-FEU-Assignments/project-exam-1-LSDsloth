@@ -178,9 +178,9 @@ async function getNewsPosts(newsUrl) {
         
         <div class="postText">
           <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-          <p>
-          ${post.excerpt.rendered}
-          </p>
+          <div class="excerpt">
+            ${post.excerpt.rendered}
+          </div>
         </div>
         <div class="posterInformation">
           <div class="poster">
@@ -274,9 +274,9 @@ async function getTutorialsPosts(tutorialsUrl) {
         
         <div class="postText">
           <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-          <p>
-          ${post.excerpt.rendered}
-          </p>
+          <div class="excerpt">
+            ${post.excerpt.rendered}
+          </div>
         </div>
         <div class="posterInformation">
           <div class="poster">
@@ -370,9 +370,9 @@ async function getReviewsPosts(reviewsUrl) {
                   
                   <div class="postText">
                     <a href="blogSpecific.html?slug=${post.slug}"> <h4>${post.title.rendered}</h4> </a>
-                    <p>
+                    <div class="excerpt">
                     ${post.excerpt.rendered}
-                    </p>
+                    </div>
                   </div>
                   <div class="posterInformation">
                     <div class="poster">
