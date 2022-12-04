@@ -226,6 +226,10 @@ header .login-signUpContainer a:nth-child(even) {
   margin-left: 20px;
 }
 
+header .login-signUpContainer a:nth-child(even):hover {
+  background-color: var(--primary-theme-hover-color);
+}
+
 header .login-signUpContainer a:nth-child(odd):hover {
   border-bottom: 1px solid #d6ed17;
 }
