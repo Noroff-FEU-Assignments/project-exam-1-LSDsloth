@@ -33,6 +33,7 @@
   --primary-background-color: #080b0f;
   --secondary-background-color: #0e141a;
   --primary-theme-color: #d6ed17;
+  --primary-theme-hover-color: hsl(66deg 86% 45%);
 }
 
 * {
@@ -577,6 +578,10 @@ main {
   line-height: 35px;
   border: none;
   cursor: pointer;
+}
+
+.seeMoreContainer .seeMore:hover {
+  background-color: var(--primary-theme-hover-color);
 }
 
 /* NEWSLETTER */
