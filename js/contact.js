@@ -11,7 +11,7 @@ const formTextareaError = document.querySelector("#formTextareaError");
 function formValidation() {
   event.preventDefault();
 
-  if (name.value.trim().length >= 2) {
+  if (name.value.trim().length >= 5) {
     formNameError.style.display = "none";
     name.style.border = "2px solid green";
   } else {
@@ -29,7 +29,7 @@ function formValidation() {
     console.log("Input invalid!");
   }
 
-  if (subject.value.trim().length >= 1) {
+  if (subject.value.trim().length >= 15) {
     formSubjectError.style.display = "none";
     subject.style.border = "2px solid green";
   } else {
@@ -37,7 +37,7 @@ function formValidation() {
     subject.style.border = "2px solid red";
   }
 
-  if (message.value.trim().length >= 10) {
+  if (message.value.trim().length >= 25) {
     formTextareaError.style.display = "none";
     message.style.border = "2px solid green";
   } else {
