@@ -11,6 +11,7 @@ const newsPosts = document.querySelector(".newsPosts .listOfPosts");
 const tutorialsPosts = document.querySelector(".tutorialsPosts .listOfPosts");
 const reviewsPosts = document.querySelector(".reviewsPosts .listOfPosts");
 const categoriesWrapper = document.querySelector(".categories");
+const pageLoader = document.querySelector(".ring");
 
 // FEATURED POSTS
 
