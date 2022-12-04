@@ -42,6 +42,9 @@ async function post() {
         postThumbnail.src =
           results[i]._embedded["wp:featuredmedia"][0].source_url;
 
+        postThumbnail.alt =
+          results[i]._embedded["wp:featuredmedia"][0].alt_text;
+
         const date = results[i].date;
         console.log(date);
         let newDate = new Date(date);
