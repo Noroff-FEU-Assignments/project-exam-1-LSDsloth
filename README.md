@@ -16,8 +16,6 @@ You can add some bullet points if you'd like to:
 
 ## Built With
 
-You can list a the tech stack that you've used over here
-
 - HTML
 - CSS
 - JS
