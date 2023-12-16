@@ -13,7 +13,7 @@ This is a blogging website. In this blog we cover news, tutorials and reviews ab
 - HTML
 - CSS
 - JS
-- 
+  
 ## Contact
 
 If you want to contact me you can message me on <a href="https://twitter.com/StianLibeck">Twitter</a>
